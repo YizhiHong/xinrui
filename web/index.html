@@ -1,0 +1,196 @@
+<!doctype html>
+<!--[if lt IE 8]><html lang="en" class="ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
+<!--[if gt IE 9]><html lang="en"><![endif]-->
+<!--[if !IE]><html lang="en"><![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>南方科技大学植物园</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/xinrui.css">
+
+    <style type="text/css">
+      .index-block{
+        margin: 10% 40px;
+      }
+      .animated-content{
+        position: fixed;
+        right: 0px;
+        z-index: -1;
+      }
+      .animated-content img{
+        position: fixed;
+        right: 0px;
+        z-index: -1;
+      }
+      div[name = search] > img{bottom: 0px;}
+      div[name = special] > img{bottom: 0px;}
+      div[name = shows] > img{bottom: 0px;}
+      div[name = activity] > img{top: 0px;}
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container-fiuld"></div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 header-logo">
+              <img src="./images/logo.png" class="logo img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="login-section">
+                <div class="lang-drop dropdown">
+                  <button class="btn dropdown-toggle" type="button" id="language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      中文
+                      <i class="icon-angle-down"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="language">
+                      <li><a href="#">中文</a></li>
+                      <li><a href="#">English</a></li>
+                  </ul>
+                </div>
+                <div class="sign-login">
+                  <button class="btn">登陆</button>
+                  <span style="font-size: 10px">|</span>
+                  <button class="btn">注册</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="index-block">
+            <div class="row">
+              <div class="col-xs-3 col-sm-2 index-item">
+                <a href="./show.html">
+                  <div id="shows" class="index-shows">
+                    <img class="img-sm img-responsive" src="./images/zhanshi.png">
+                  </div>
+                  <img class="img-lg img-hidden img-responsive" src="./images/zhanshi_lg.png">
+                </a>
+              </div>
+              <div class="col-xs-3 col-sm-2 index-item">
+                <a href="./search.html">
+                  <div id="search" class="index-search">
+                    <img class="img-sm img-responsive" src="./images/sousuo.png">
+                  </div>
+                  <img class="img-lg img-hidden img-responsive" src="./images/sousuo_lg.png">
+                </a>
+              </div>
+              <div class="col-xs-3 col-sm-2 index-item">
+                <a href="./activity.html">
+                  <div id="activity" class="index-activity">
+                    <img class="img-sm img-responsive" src="./images/huodong.png">
+                  </div>
+                  <img class="img-lg img-hidden img-responsive" src="./images/huodong_lg.png">
+                </a>
+              </div>
+              <div class="col-xs-3 col-sm-2 index-item">
+                <a href="./special.html">
+                  <div id="special" class="index-special">
+                    <img class="img-sm img-responsive" src="./images/zhuanti.png">
+                  </div>
+                  <img class="img-lg img-hidden img-responsive" src="./images/zhuanti_lg.png">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="animated_flower" class="animated-content" name="shows">
+      <img id="fl_b" class="img-responsive" src="./images/shows/b.png">
+      <img id="fl_f" class="img-responsive" src="./images/shows/f.png">
+      <img id="fl_m" class="img-responsive" src="./images/shows/m.png">
+    </div>
+
+    <div class="footer">
+      <div class="row">
+        <div class="col-xs-12">
+          
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="./js/move.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+
+
+    </script>
+    <script type="text/javascript">
+      $(function() {
+        function moveIn(){
+          move('#fl_f').duration('0.6s').ease('in-out').x(10).scale(1.02).end();
+          move('#fl_m').duration('0.7s').ease('in').rotate(10).scale(1.02).end();
+          move('#fl_b').duration('0.8s').ease('out').y(10).scale(1.02).end();
+        }
+        function moveOut(){
+          move('#fl_f').ease('in-out').x(0).y(0).end();
+          move('#fl_m').ease('out').rotate(0).scale(1).end();
+          move('#fl_b').ease('in').y(0).scale(1).end();
+        }
+
+        $('body').on('mouseover',moveIn)
+        $('body').on('mouseout',moveOut)
+
+        function bannerCallback(target){
+          let $img = target.find('.img-lg')
+          $img.removeClass('bounceInDown animated')
+        }
+        function bannerReset(target){
+          let $img = target.find('.img-lg')
+          let $div = target.find('div')
+          $img.removeClass('img-active')
+          $img.addClass('img-hidden')
+          $div.removeClass('img-hidden')
+        }
+        function activeFlower(name){
+          $('.animated-content').attr('name',name)
+          $('#fl_f').attr('src', './images/' + name + '/f.png');
+          $('#fl_m').attr('src', './images/' + name + '/m.png');
+          $('#fl_b').attr('src', './images/' + name + '/b.png');
+        }
+        $('.index-item').hover(function(){
+            let $img = $(this).find('.img-lg')
+            let $div = $(this).find('div')
+            if(!$img.hasClass('img-active')){
+              $('.index-item').each(function() {
+                bannerReset($(this))
+              });
+              $img.removeClass('img-hidden')
+              $img.addClass('bounceInDown animated');
+              $div.addClass('img-hidden')
+              $img.addClass('img-active')
+
+              name = $div.attr('id')
+              activeFlower(name)
+            }
+         },function(){
+            let $this = $(this)
+            if($this.find('.img-lg').hasClass('img-active')){
+              $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+              bannerCallback($this));
+            }
+         });
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+body{
+	font-family: '微软雅黑';
+	font-size: 14px;
+	background-image: url(../images/bg.png);
+	background-color: #F8F6ED;
+	color: #333333;
+}
+
+.header{
+	margin: 20px 40px
+}
+
+.logo{
+	width: 70%;
+	max-width: 472px; 
+}
+
+.login-section{
+	float: right;
+	display: inline-block;
+}
+
+.login-section .btn{
+	border-radius: 1px;
+	height: 40px;
+	background: transparent;
+}
+.login-section button:focus{
+	box-shadow: none;
+	outline:0 !important;
+}
+
+.lang-drop, .sign-login{
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.lang-drop{
+	margin-right: 40px;
+}
+
+.lang-drop .btn{
+	border: 1px solid #CBCBCB;
+	width: 113px;
+	text-align: left;
+	padding-left: 20px;
+}
+.lang-drop .dropdown-menu{
+	min-width: 113px;
+    margin-top: -1px;
+    border-radius: 1px;
+    padding: 0px 0;
+    background: transparent;
+}
+.lang-drop .dropdown-menu > li > a{
+	padding: 10px 15px;
+	color: #85837D;
+	font-size: 12px
+}
+.sign-login .btn{
+	border:none;
+}
+
+.sign-login{
+
+}
+
+.content{
+
+}
+.index-item{
+	margin: 20px 0px;
+}
+.index-item > * > div{
+	width: 100%;
+}
+
+.img-lg{
+	position: absolute;
+    top: -50%;
+    left: 0;
+    z-index: 99;
+}
+.img-sm{
+	margin: 0 auto;
+}
+
+.img-hidden{
+	opacity: 0;
+	transition:0.8s;
+}
+
+.img-active{
+	opacity: 1;
+	transition:0.8s;
+}
+
+.footer{
+
+}
+
+.sign-login{
+}
+
+
+@media (max-width:768px){
+	.logo{
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+
+/* Animations */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY,
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
