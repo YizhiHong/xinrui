@@ -4,8 +4,14 @@ body{
 	background-image: url(../images/bg.png);
 	background-color: #F8F6ED;
 	color: #333333;
+	height:100%;
+	padding:0px; 
+	margin:0px;
 }
-
+.wrapper{
+	min-height:100%; 
+	position:relative
+}
 .header{
 	margin: 20px 40px
 }
@@ -60,6 +66,23 @@ body{
 .sign-login .btn{
 	border:none;
 }
+.index-block{
+	margin: 10% 40px;
+}
+.animated-content{
+	position: fixed;
+	right: 0px;
+	z-index: -1;
+}
+.animated-content img{
+	position: fixed;
+	right: 0px;
+	z-index: -1;
+}
+div[name = search] > img{bottom: 0px;}
+div[name = special] > img{bottom: 0px;}
+div[name = shows] > img{bottom: 0px;}
+div[name = activity] > img{top: 0px;}
 
 .sign-login{
 
