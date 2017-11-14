@@ -228,9 +228,6 @@ div[name = activity] > img{top: 0px;}
 }
 .blog-post {
 	padding-bottom: 30px;
-  border-bottom-color: #D8D8D8;
-  border-bottom-style: solid;
-  border-bottom-width: thin;
 }
 .blog-post p {
 	text-indent: 2em; 
@@ -240,6 +237,11 @@ div[name = activity] > img{top: 0px;}
 
 .blog-post:hover {
 	color: #00bcd4;
+}
+
+.bottom-button {
+  height: 100px;
+  padding: 60px 60px 70px 60px;
 }
 
 .apply-button {
@@ -260,3 +262,13 @@ div[name = activity] > img{top: 0px;}
   color: #A6A39A;
 }
 
+.footer {
+  height: 50px;
+  border-top-color: #D8D8D8;
+  border-top-style: solid;
+  border-top-width: thin;
+}
+
+/*-------------------------------------------*/
+/*------Special Topic Infomation Page--------*/
+/*-------------------------------------------*/
