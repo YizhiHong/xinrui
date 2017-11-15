@@ -1,3 +1,5 @@
+* {box-sizing:border-box}
+
 body{
 	font-family: '微软雅黑';
 	font-size: 14px;
@@ -273,5 +275,96 @@ div[name = activity] > img{top: 0px;}
 }
 
 /*-------------------------------------------*/
-/*------Special Topic Infomation Page--------*/
+/*------Special Topic 1 Page-----------------*/
 /*-------------------------------------------*/
+/* Slideshow container */
+.slideshow-container {
+  max-width: 500px;
+  padding:15px 15px 90px 15px;
+  position: relative;
+  margin: auto;
+  border: 10px solid;
+  -webkit-border-image: url(../images/block.png) 15 round; /* Safari 3.1-5 */
+  -o-border-image: url(../images/block.png) 15 round; /
+  border-image: url(../images/block.png) 15 round;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+  border-radius: 5px;
+}
+
+.group-wrapper a{
+  display: block;
+  outline: none;
+  z-index: 50;
+  position: absolute;
+  top: 50%;
+  margin-top: -34px;
+  background-color: #2AACA1;
+  color: #ffffff;
+  padding: 10px 17px 10px 17px;
+}
+
+.prev {
+  left: 30px;
+}
+
+.next {
+  right: 30px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: #EBE8DB;
+  color: grey;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.active, .dot:hover {
+  background-color: #2aaca1;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
