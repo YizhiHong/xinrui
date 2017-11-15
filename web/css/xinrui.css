@@ -10,6 +10,9 @@ body{
 	padding:0px; 
 	margin:0px;
 }
+/*---------------------*/
+/*------General--------*/
+/*---------------------*/
 .swiper-container {
     width: 100%;
     height: 100%;
@@ -30,6 +33,22 @@ body{
   -webkit-align-items: center;
   align-items: center;
 }
+.swiper-button-next,.swiper-button-prev{
+    color: white;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #2AACA1;
+    border-radius: 3px;
+    background: #2AACA1;
+}
+.swiper-button-next{
+	padding: 4px 15px;
+}
+.swiper-button-prev{
+	padding: 4px 14px;
+}
+
+
 .wrapper{
 	min-height:100%; 
 	position:relative
@@ -92,42 +111,9 @@ body{
 .sign-login .btn{
 	border:none;
 }
-.index-block{
-	margin: 10% 40px;
-}
-.animated-content{
-	position: fixed;
-	right: 0px;
-	z-index: -1;
-}
-.animated-content img{
-	position: fixed;
-	right: 0px;
-	z-index: -1;
-}
-div[name = search] > img{bottom: 0px;}
-div[name = special] > img{bottom: 0px;}
-div[name = shows] > img{bottom: 0px;}
-div[name = activity] > img{top: 0px;}
-
-.sign-login{
-
-}
-
-.content{
-
-}
-.index-item{
-	margin: 20px 0px;
-}
-.index-item > * > div{
-	width: 100%;
-}
-
 .img-lg{
 	position: absolute;
     top: -50%;
-    left: 0;
     z-index: 99;
 }
 .img-sm{
@@ -144,16 +130,14 @@ div[name = activity] > img{top: 0px;}
 	transition:0.8s;
 }
 
-.index-footer{
-	position: fixed;
-    bottom: 20px;
-    left: 50px;
-}
-
 .footer-link > *{
 	display: inline-block
 }
-
+.btn-theme-white,.btn-theme-white-lg{
+	background: transparent;
+	color: #2AACA1;
+	border: 1px solid #2AACA1;
+}
 .btn-theme,.btn-theme-lg,.btn-back{
     background: #2AACA1;
     color: white;
@@ -166,6 +150,9 @@ div[name = activity] > img{top: 0px;}
 .btn-back{
 	padding: 5px 9px;
 }
+.btn-back > i{
+	font-size: 12px;
+}
 .btn-back:hover,
 .btn-back:focus,
 .btn-theme:hover,
@@ -177,6 +164,13 @@ div[name = activity] > img{top: 0px;}
 	opacity: 0.8;
 	color: white;
 }
+.btn-theme-white:hover,
+.btn-theme-white:focus,
+.btn-theme-white-lg:hover,
+.btn-theme-white-lg:focus{
+	opacity: 0.6;
+	color: #2AACA1;
+}
 .btn-theme-lg{
 	width: 100%
 }
@@ -184,7 +178,47 @@ div[name = activity] > img{top: 0px;}
     padding: 13px 0;
     margin-top: 10px;
 }
+.footer{
+	position: relative;
+	padding: 20px 50px;
+}
+/*-------------------*/
+/*------index--------*/
+/*-------------------*/
+.index-block{
+	margin: 10% 40px;
+}
+.animated-content{
+	position: fixed;
+	right: 0px;
+	z-index: -1;
+}
+.animated-content img{
+	position: fixed;
+	right: 0px;
+	z-index: -1;
+}
 
+div[name = search] > img{bottom: 0px;}
+div[name = special] > img{bottom: 0px;}
+div[name = shows] > img{bottom: 0px;}
+div[name = activity] > img{top: 0px;}
+
+.index-item{
+	margin: 20px 0px;
+}
+.index-item > * > div{
+	width: 100%;
+}
+.index-footer{
+	position: fixed;
+    bottom: 20px;
+    left: 50px;
+}
+
+/*-------------------*/
+/*------login--------*/
+/*-------------------*/
 .login-modal{
 	max-width: 370px;
 	margin-top: 10%;
@@ -263,6 +297,18 @@ div[name = activity] > img{top: 0px;}
 	color: #25ABA0;
 }
 
+/*-------------------*/
+/*------shows--------*/
+/*-------------------*/
+
+.month-slide > .btn-theme-white{
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    display: inline-block;
+    line-height: 2;
+    margin: 15px 20px;
+}
 
 @media (max-width:768px){
 	.logo{
@@ -398,12 +444,12 @@ div[name = activity] > img{top: 0px;}
 /*-------------------------------------------*/
 /*------Special Topic Infomation Page--------*/
 /*-------------------------------------------*/
-.sp_info {
+.sp-info {
   margin-top: 20px;
   color: #A6A39A;
 }
 
-.footer {
+.sp-footer {
   height: 50px;
   border-top-color: #D8D8D8;
   border-top-style: solid;
@@ -411,96 +457,79 @@ div[name = activity] > img{top: 0px;}
 }
 
 /*-------------------------------------------*/
-/*------Special Topic 1 Page-----------------*/
+/*---------------Special Page----------------*/
 /*-------------------------------------------*/
-/* Slideshow container */
-.slideshow-container {
-  max-width: 500px;
-  padding:15px 15px 90px 15px;
-  position: relative;
-  margin: auto;
-  border: 10px solid;
-  -webkit-border-image: url(../images/block.png) 15 round; /* Safari 3.1-5 */
-  -o-border-image: url(../images/block.png) 15 round; /
-  border-image: url(../images/block.png) 15 round;
+
+.swiper-special > .swiper-slide > .special-slide{
+  max-width: 700px;
+  padding:15px 20px;
+  border: 15px solid;
+  -webkit-border-image: url(../images/special/bg.png) 15 round; /* Safari 3.1-5 */
+  -o-border-image: url(../images/special/bg.png) 15 round; /
+  border-image: url(../images/special/bg.png) 15 round;
 }
-
-.mySlides {
-    display: none;
+.special-slide-info{
+	color: #525251;
 }
-
-.mySlides img {
-  border-radius: 5px;
+.special-slide-info > .left{
+	display: block;
+    float: left;
 }
-
-.group-wrapper a{
-  display: block;
-  outline: none;
-  z-index: 50;
-  position: absolute;
-  top: 50%;
-  margin-top: -34px;
-  background-color: #2AACA1;
-  color: #ffffff;
-  padding: 10px 17px 10px 17px;
+.special-slider-info img{
+	border-radius: 5px;
 }
-
-.prev {
-  left: 30px;
+.special-slide-info .title{
+	text-align: left;
 }
-
-.next {
-  right: 30px;
+.special-slide-info .title > h3{
+	display: inline-block;
+	font-size: 22px;
+	font-weight: 100 !important;
 }
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: #EBE8DB;
-  color: grey;
+.special-slide-info .title > span, .special-slide-info p > span{
+	font-size: 12px;
+	color: #25ABA0;
 }
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+.special-slide-info .title > span{
+	margin-left: 21px;
 }
-
-
-/* The dots/bullets/indicators */
-.dot {
+.special-slide-info p{
+	float: left;
+	font-size: 12px;
+	color: #85837D;
+	font-weight: 100 !important;
+}
+.special-slide-info p > span{
+	margin-left: 5px;
+}
+.special-slide-info > .right{
+	padding: 22px 2px;
+}
+.special-slide-info a{
+	border: 1px solid #26A093;
+	color: #26A093;
+	float: right;
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 2;
+}
+.swiper-pagination{
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+}
+.swiper-pagination-bullet {
   cursor:pointer;
   height: 15px;
   width: 15px;
-  margin: 0 2px;
+  margin: 0 5px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
 }
 
-.active, .dot:hover {
+.swiper-pagination-bullet-active, .dot:hover {
   background-color: #2aaca1;
 }
 
-/* Fading animation */
-/* .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
- */
