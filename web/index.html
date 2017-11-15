@@ -39,9 +39,9 @@
                   </ul>
                 </div>
                 <div class="sign-login">
-                  <button class="btn">登陆</button>
+                  <button class="btn" data-toggle="modal" data-target="#login">登陆</button>
                   <span style="font-size: 10px">|</span>
-                  <button class="btn">注册</button>
+                  <button class="btn" data-toggle="modal" data-target="#sign">注册</button>
                 </div>
               </div>
             </div>
@@ -51,43 +51,39 @@
     </div>
 
     <div class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="index-block">
-            <div class="row">
-              <div class="col-xs-3 col-sm-2 index-item">
-                <a href="./show.html">
-                  <div id="shows" class="index-shows">
-                    <img class="img-sm img-responsive" src="./images/zhanshi.png">
-                  </div>
-                  <img class="img-lg img-hidden img-responsive" src="./images/zhanshi_lg.png">
-                </a>
+      <div class="index-block">
+        <div class="row">
+          <div class="col-xs-3 col-sm-2 index-item">
+            <a href="./show.html">
+              <div id="shows" class="index-shows">
+                <img class="img-sm img-responsive" src="./images/zhanshi.png">
               </div>
-              <div class="col-xs-3 col-sm-2 index-item">
-                <a href="./search.html">
-                  <div id="search" class="index-search">
-                    <img class="img-sm img-responsive" src="./images/sousuo.png">
-                  </div>
-                  <img class="img-lg img-hidden img-responsive" src="./images/sousuo_lg.png">
-                </a>
+              <img class="img-lg img-hidden img-responsive" src="./images/zhanshi_lg.png">
+            </a>
+          </div>
+          <div class="col-xs-3 col-sm-2 index-item">
+            <a href="./search.html">
+              <div id="search" class="index-search">
+                <img class="img-sm img-responsive" src="./images/sousuo.png">
               </div>
-              <div class="col-xs-3 col-sm-2 index-item">
-                <a href="./activity.html">
-                  <div id="activity" class="index-activity">
-                    <img class="img-sm img-responsive" src="./images/huodong.png">
-                  </div>
-                  <img class="img-lg img-hidden img-responsive" src="./images/huodong_lg.png">
-                </a>
+              <img class="img-lg img-hidden img-responsive" src="./images/sousuo_lg.png">
+            </a>
+          </div>
+          <div class="col-xs-3 col-sm-2 index-item">
+            <a href="./activity.html">
+              <div id="activity" class="index-activity">
+                <img class="img-sm img-responsive" src="./images/huodong.png">
               </div>
-              <div class="col-xs-3 col-sm-2 index-item">
-                <a href="./special.html">
-                  <div id="special" class="index-special">
-                    <img class="img-sm img-responsive" src="./images/zhuanti.png">
-                  </div>
-                  <img class="img-lg img-hidden img-responsive" src="./images/zhuanti_lg.png">
-                </a>
+              <img class="img-lg img-hidden img-responsive" src="./images/huodong_lg.png">
+            </a>
+          </div>
+          <div class="col-xs-3 col-sm-2 index-item">
+            <a href="./special.html">
+              <div id="special" class="index-special">
+                <img class="img-sm img-responsive" src="./images/zhuanti.png">
               </div>
-            </div>
+              <img class="img-lg img-hidden img-responsive" src="./images/zhuanti_lg.png">
+            </a>
           </div>
         </div>
       </div>
@@ -99,13 +95,89 @@
       <img id="fl_m" class="img-responsive" src="./images/shows/m.png">
     </div>
 
-    <div class="footer">
+    <div class="index-footer">
       <div class="row">
         <div class="col-xs-12">
-          
+          <div class="footer-link">
+            <p>南方科技大学生命科学实验教学示范中心</p>
+            <button class="btn btn-theme">进入</button>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- login Modal -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login">
+      <div class="modal-dialog login-modal" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="sign-login">
+              <a class="btn btn-active" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#login">登陆</a>
+              <span>|</span>
+              <a class="btn" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#sign">注册</a>
+            </div>
+          </div>
+          <div class="modal-body">
+            <form action="post">
+              <div class="form-group">
+                <label for="userName">用户名</label>
+                <input type="name" class="form-control" id="userName" placeholder="请输入您的用户名">
+              </div>
+              <div class="form-group">
+                <label for="userPassword">密码</label>
+                <input type="password" class="form-control" id="userPassword" placeholder="请输入您的密码">
+              </div>
+              <div class="form-other">
+                <a href="#" class="link-theme">忘记密码?</a>
+              </div>
+              <button type="button" class="btn btn-theme-lg">登陆</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Modal -->
+    <div class="modal fade" id="sign" tabindex="-1" role="dialog" aria-labelledby="sign">
+      <div class="modal-dialog login-modal sign-modal" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="sign-login">
+              <a class="btn" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#login">登陆</a>
+              <span>|</span>
+              <a class="btn btn-active" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#sign">注册</a>
+            </div>
+          </div>
+          <div class="modal-body">
+            <form action="post">
+              <div class="form-group">
+                <label for="signName">用户名</label>
+                <input type="name" class="form-control" id="signName" placeholder="请输入您的用户名">
+              </div>
+              <div class="form-group">
+                <label for="signName">密码</label>
+                <input type="password" class="form-control" id="signName" placeholder="请输入您的密码">
+              </div>
+              <div class="form-group">
+                <label for="signPhone">手机号码</label>
+                <input type="" class="form-control" id="signPhone" placeholder="请输入您的手机号码">
+                <i></i>
+              </div>
+              <div class="form-group">
+                <label for="signCode">验证码</label>
+                <input type="" class="form-control" id="signCode" placeholder="请输入您收到的手机验证码">
+              </div>
+
+              <button type="button" class="btn btn-theme-lg">注册</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <script src="./js/jquery-3.2.1.min.js"></script>
     <script src="./js/move.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
