@@ -61,6 +61,10 @@ body{
 	width: 70%;
 	max-width: 472px; 
 }
+.logo-sm{
+	width: 50%;
+	max-width: 225px; 
+}
 .content-block{
 	display: block;
 	position: relative;

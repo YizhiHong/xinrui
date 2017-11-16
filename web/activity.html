@@ -1,0 +1,79 @@
+<!doctype html>
+<!--[if lt IE 8]><html lang="en" class="ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
+<!--[if gt IE 9]><html lang="en"><![endif]-->
+<!--[if !IE]><html lang="en"><![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>南方科技大学植物园 | 活动</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">   
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/xinrui.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 header-logo">
+              <img src="./images/logo_sm.png" class="logo-sm img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="login-section">
+                <div class="lang-drop dropdown">
+                  <button class="btn dropdown-toggle" type="button" id="language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      中文
+                      <i class="icon-angle-down"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="language">
+                      <li><a href="#">中文</a></li>
+                      <li><a href="#">English</a></li>
+                  </ul>
+                </div>
+                <div class="sign-login">
+                  <button class="btn" data-toggle="modal" data-target="#login">登陆</button>
+                  <span style="font-size: 10px">|</span>
+                  <button class="btn" data-toggle="modal" data-target="#sign">注册</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="content-block">
+        <a href="./index.html" class="btn btn-back"><i class="icon-arrow-left"></i></a>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var mySwiper = new Swiper ('.swiper-container', {
+          loop: true,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        })
+      });
+    </script>
+  </body>
+</html>
