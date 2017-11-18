@@ -306,5 +306,91 @@ h3:hover {
 }
 
 /*-------------------------------------------*/
-/*------  --------*/
+/*-------------- Special Mobile Page --------*/
 /*-------------------------------------------*/
+#special-mobile-body {
+ background-color: #ECECEC;
+}
+
+.part {
+ /* height: 245px;*/
+  margin: 6px;
+}
+
+.pic-container {
+  background-color: #ececec;
+}
+.special-pic{
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.inside {
+  background-color: #FFFFFF;
+}
+
+.inside p {
+  font-size: 14px;
+  font-weight: 150;
+}
+
+.time {
+  background-color: #ffffff;
+  border-top-color: #D8D8D8;
+  border-top-style: solid;
+  border-top-width: thin; 
+/*  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;*/
+}
+
+.time p {
+  font-size: 10px;
+  padding-top: 8px;
+  color: #858585;
+  font-weight: 150;
+}
+
+/*-------------------------*/
+/*----Index Mobile Page----*/
+/*-------------------------*/
+#index-mobile-body {
+ background-color: #ECECEC;
+}
+
+.index-part {
+  background-color: #ffffff;
+  margin: 15px;
+  background-image: url("../images/index-mobile/back1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5em;
+  height: 130px;
+
+}
+
+.part-title h2, h6{
+  font-weight: 200;
+}
+
+.part-title h6 {
+  color: #858585;
+}
+
+.background-container {
+  border: 0;
+  float: right;
+  position: relative;
+}
+
+.index-pic{
+  /*border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;*/
+  width: 50%;
+}
+
+.cornerimage {
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+ } 
