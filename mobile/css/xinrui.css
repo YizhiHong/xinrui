@@ -339,8 +339,8 @@ h3:hover {
   border-top-color: #D8D8D8;
   border-top-style: solid;
   border-top-width: thin; 
-/*  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;*/
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
 }
 
 .time p {
