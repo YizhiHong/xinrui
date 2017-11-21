@@ -153,6 +153,7 @@ body{
 }
 .btn-back{
 	padding: 5px 9px;
+	margin-top: 10px;
 }
 .btn-back > i{
 	font-size: 12px;
@@ -388,9 +389,77 @@ div[name = activity] > img{top: 0px;}
   animation-name: fadeIn;
 }
 
-
 /*-------------------------------*/
-/*-------Event Page*-----*/
+/*----------activity Page--------*/
+/*-------------------------------*/
+
+.activity-content .btn-back{
+	display: inline-block;
+    float: left;
+}
+.activity-header{
+	margin-bottom: 20px;
+}
+.tool-bar{
+	display: inline-block;
+	margin: 5px 40px;
+}
+.tool-bar > .nav-tabs{
+	border: 0px;
+}
+.nav-tabs>li{
+	margin-right: 20px;
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover{
+	padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #25ABA0;
+    border: 0px;
+    border-radius: 25px;
+    border-bottom-color: transparent;
+}
+.nav-tabs>li>a,
+.nav-tabs>li>a:focus,
+.nav-tabs>li>a:hover{
+	padding: 10px 20px;
+	background-color:transparent;
+	color: #85837D;
+	border: 0px;
+	border-radius: 25px;
+    border-bottom-color: transparent;
+}
+.nav-tabs>li>a:hover{
+	opacity: 0.5;
+}
+.search-section{
+	float: right;
+	display: inline-block;
+}
+.search-section .btn{
+	border-radius: 1px;
+	height: 40px;
+	background: transparent;
+}
+.search-section button:focus{
+	box-shadow: none;
+	outline:0 !important;
+}
+.search-section > .lang-drop{
+	margin-top: 10px;
+}
+.search-section > .lang-drop .btn{
+    width: 147px;
+    padding-left: 0px;
+    text-align: center;
+}
+.search-section > .lang-drop > .dropdown-menu{
+	min-width: 147px;
+}
+/*-------------------------------*/
+/*-----------Event Page*---------*/
 /*-------------------------------*/
 .change-button {
 	top: 30px;

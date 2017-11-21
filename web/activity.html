@@ -51,11 +51,38 @@
     </div>
 
     <div class="content">
-      <div class="content-block">
-        <a href="./index.html" class="btn btn-back"><i class="icon-arrow-left"></i></a>
+      <div class="content-block activity-content">
+        <div class="activity-header">
+          <a href="./index.html" class="btn btn-back"><i class="icon-arrow-left"></i></a>
+          <div class="tool-bar">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#article" aria-controls="article" role="tab" data-toggle="tab">征文活动</a></li>
+              <li role="presentation"><a href="#image" aria-controls="image" role="tab" data-toggle="tab">图片征集</a></li>
+              <li role="presentation"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">活动召集</a></li>
+            </ul>
+          </div>
+          <div class="search-section">
+            <div class="lang-drop dropdown">
+              <button class="btn dropdown-toggle" type="button" id="sorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                全部<i class="icon-angle-down"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="sorting">
+                  <li><a href="#">全部</a></li>
+                  <li><a href="#">最高评分</a></li>
+                  <li><a href="#">最新发布</a></li>
+              </ul>
+            </div>
+            <a src="#" class="apply-button">上传</a>
+          </div>
+
+        </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class=""></div>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="article">征文活动</div>
+              <div role="tabpanel" class="tab-pane" id="image">2</div>
+              <div role="tabpanel" class="tab-pane" id="activity">3</div>
+            </div>
           </div>
         </div>
       </div>
