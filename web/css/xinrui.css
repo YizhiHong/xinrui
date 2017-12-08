@@ -5,6 +5,8 @@ body{
 	font-size: 14px;
 	background-image: url(../images/bg.png);
 	background-color: #F8F6ED;
+	background-size: cover;
+    background-repeat: no-repeat;
 	color: #333333;
 	height:100%;
 	padding:0px; 
@@ -458,6 +460,14 @@ div[name = activity] > img{top: 0px;}
 .search-section > .lang-drop > .dropdown-menu{
 	min-width: 147px;
 }
+a.apply-button{
+	display: inline-block;
+    text-align: center;
+    height: 40px;
+    margin-top: 10px;
+    line-height: 14px;
+    float: right;
+}
 /*-------------------------------*/
 /*-----------Event Page*---------*/
 /*-------------------------------*/
@@ -491,7 +501,9 @@ div[name = activity] > img{top: 0px;}
 	font-size: 16px;
 	line-height: 38px;
 }
-
+.activity-header .lang-drop .dropdown-menu{
+	background-color: rgba(255, 255, 255, .8)
+}
 .blog-post:hover {
 	color: #00bcd4;
 }
@@ -513,6 +525,79 @@ div[name = activity] > img{top: 0px;}
   padding: 12px 30px 10px 30px;
   margin: auto;
 }
+.activity-slide{
+  max-width: 356px;
+  padding:12px 15px;
+  border: 15px solid;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-border-image: url(../images/block.png) 15 round; /* Safari 3.1-5 */
+  -o-border-image: url(../images/block.png) 15 round; /
+  border-image: url(../images/block.png) 15 round;
+  margin: 10px auto;
+}
+.activity-slide-info .title{
+	text-align: left;
+	margin-bottom: 4px;
+}
+.activity-slide-info .title > h3{
+	display: inline-block;
+	color: #333333;
+	font-size: 16px;
+	margin-bottom: 0px;
+}
+.activity-slide-info .title > span{
+	font-size: 16px;
+	color: #25ABA0;
+}
+.activity-slide-info p > span{
+	font-size: 12px;
+	color: #25ABA0;
+}
+.activity-slide-info .title > span{
+	margin-left: 21px;
+}
+.activity-slide-info p{
+	font-size: 12px;
+	color: #85837D;
+	margin-bottom: 0px;
+}
+.activity-slide-info p > span{
+	margin-left: 5px;
+}
+.image-title{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 50%;
+    height: 40%;
+    left: 25%;
+    top: 20%;
+}
+.image-title > h3{
+	text-align: center;
+	margin: 13% auto;
+	color: #333333;
+	font-size: 16px;
+}
+.image-title > h4{
+    text-align: center;
+    font-size: 12px;
+    padding: 10px;
+    color: rgba(51,51,51, 0.6);
+    border-top: 1px solid rgba(51,51,51, 0.2);
+    border-bottom: 1px solid rgba(51,51,51, 0.2);
+    margin: 0 auto;
+    width: 60%;
+}
+@media (max-width:924px){
+	.search-section{
+		display: block;
+		float: none;
+	}
+	.search-section a.apply-button{
+		float: none;
+	}
+}
+
 
 /*-------------------------------------------*/
 /*------Special Topic Infomation Page--------*/
