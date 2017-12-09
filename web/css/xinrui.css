@@ -217,6 +217,13 @@ body{
 /*-------------------*/
 /*------index--------*/
 /*-------------------*/
+#hover_area{
+	position: absolute;
+	width: 45%;
+	height: 100%;
+	right: 0;
+	top: 0;
+}
 .index-block{
 	margin: 10% 40px;
 }
@@ -335,7 +342,7 @@ div[name = activity] > img{top: 0px;}
 
 .month-slide > .btn-theme-white{
     width: 150px;
-    height: 50px;
+    height: 51px;
     font-size: 20px;
     display: inline-block;
     line-height: 2;

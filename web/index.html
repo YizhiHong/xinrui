@@ -93,6 +93,7 @@
       <img id="fl_f" class="img-responsive" src="./images/shows/f.png">
       <img id="fl_m" class="img-responsive" src="./images/shows/m.png">
     </div>
+    <div id="hover_area"></div>
 
     <div class="index-footer">
       <div class="row">
@@ -183,9 +184,9 @@
     <script type="text/javascript">
       $(function() {
         function moveIn(){
-          move('#fl_f').duration('0.6s').ease('in-out').x(10).scale(1.02).end();
-          move('#fl_m').duration('0.7s').ease('in').rotate(10).scale(1.02).end();
-          move('#fl_b').duration('0.8s').ease('out').y(10).scale(1.02).end();
+          move('#fl_f').duration('0.5s').ease('in-out').x(10).scale(1.03).end();
+          move('#fl_m').duration('0.6s').ease('in').rotate(10).scale(1.03).end();
+          move('#fl_b').duration('0.7s').ease('out').y(10).scale(1.03).end();
         }
         function moveOut(){
           move('#fl_f').ease('in-out').x(0).y(0).end();
@@ -193,8 +194,8 @@
           move('#fl_b').ease('in').y(0).scale(1).end();
         }
 
-        $('body').on('mouseover',moveIn)
-        $('body').on('mouseout',moveOut)
+        $('#hover_area').on('mouseover',moveIn)
+        $('#hover_area').on('mouseout',moveOut)
 
         function bannerCallback(target){
           let $img = target.find('.img-lg')
