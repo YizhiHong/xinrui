@@ -1,0 +1,179 @@
+<!doctype html>
+<!--[if lt IE 8]><html lang="en" class="ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
+<!--[if gt IE 9]><html lang="en"><![endif]-->
+<!--[if !IE]><html lang="en"><![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>南方科技大学植物园 | 上传活动</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">   
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/xinrui.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 header-logo">
+              <img src="./images/logo_sm.png" class="logo-sm img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="login-section">
+                <div class="lang-drop dropdown">
+                  <button class="btn dropdown-toggle" type="button" id="language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      中文
+                      <i class="icon-angle-down"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="language">
+                      <li><a href="#">中文</a></li>
+                      <li><a href="#">English</a></li>
+                  </ul>
+                </div>
+                <div class="sign-login">
+                  <button class="btn" data-toggle="modal" data-target="#login">登陆</button>
+                  <span style="font-size: 10px">|</span>
+                  <button class="btn" data-toggle="modal" data-target="#sign">注册</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="content-block activity-content">
+        <div class="activity-header">
+          <a href="./index.html" class="btn btn-back"><i class="icon-arrow-left"></i></a>
+          <div class="search-section">
+            <button class="apply-button">确认发布</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="upload">
+        <form>
+          <div class="row">
+            <div class="col-xs-12"><h3>发布内容</h3></div>
+            <div class="col-xs-12 col-sm-8">
+              <div class="form-group">
+                <label for="title">标题</label><span class="label-help">简短一些让其他人快速了解你的主题(4~50字)</span>
+                <input type="text" class="form-control" id="title" placeholder="这里输入标题...">
+              </div>
+            
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="form-group">
+                <label for="type">类型</label><span class="label-help">选择你要上传的类型</span>
+                <div class="type-drop dropdown">
+                  <button class="btn dropdown-toggle" type="button" id="type" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      征文活动<i class="icon-caret-down"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="type">
+                      <li><a href="#">征文活动</a></li>
+                      <li><a href="#">图片征集</a></li>
+                      <li><a href="#">活动征集</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-group upload-section">
+                <label for="title">添加照片</label>
+                <div class="row" style="margin:0px -15px;">
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="image-upload">
+                      <img src="./images/add.png">
+                      <h4>上传照片</h4>
+                      <p>格式：JPG、PNG、GIF</p>
+                      <p>大小：小于10M</p>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="image-preview">
+                      <img class="img-responsive preview-img" id="image_1" src="">
+                    </div>
+                  </div>
+                  
+                </div>
+                <input type="file" class="form-control hidden upload-input" id="upload_1" placeholder="">  
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="type">内容</label><span class="label-help">在此输入你的正文分享给大家</span>
+                <textarea type="text" class="form-control" id="content" placeholder="这里输入正文..." ></textarea>
+              </div>
+            </div>
+          </div>
+          <button id="submit" type="submit" class="btn btn-default hidden">Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('.apply-button').on('click',function(){
+          $('#submit').click();
+        })
+        $(".type-drop").on('click', 'li a', function(){
+            let btn = $(this).parents(".dropdown").find('.btn')
+            btn.html($(this).text() + '<i class="icon-caret-down"></i>');
+            btn.val($(this).text());
+        });
+        $(".image-upload").on('click',function(){
+          let len = $('.image-preview').length
+          if (len < 4){
+            len >= 3 ? console.log('full') :$('.upload-section').append(createInput(len+1))
+            $('#upload_'+len).change(function(){
+              readURL(this);
+            })
+            $('#upload_'+len).click();
+          }else{
+            alert('图片不能多于三张')
+          }
+        })
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            let reader = new FileReader();
+            let len = $('.image-preview').length
+            reader.onload = function(e) {
+              $('.image-preview').find('#image_' + len).attr('src', e.target.result);
+              if (len < 3){
+                preview = createPreview(len+1)
+                $('.image-preview').parent().parent().append(preview)
+              }
+              // $('#image_' + len).on('click',function(){
+              //     $('#upload_'+len).click();
+              // })
+            }
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        function createInput(i){
+          return '<input type="file" class="form-control hidden upload-input" id="upload_'+i+'">'
+        }
+        function createPreview(i) {
+          let preview = '<div class="col-xs-12 col-sm-6 col-md-3"><div class="image-preview">'+
+                      '<img class="img-responsive" id="image_'+i+'" src=" "></div></div>'
+          return preview
+        }
+      });
+    </script>
+  </body>
+</html>
