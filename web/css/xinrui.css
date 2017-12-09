@@ -594,7 +594,6 @@ a.apply-button{
     height: 40px;
     margin-top: 10px;
     line-height: 14px;
-    float: right;
 }
 
 .apply-button {
@@ -712,6 +711,11 @@ a.apply-button{
 	color: #A6A39A;
 	border-left-color: #25ABA0;
 	border-left-style: solid;
+	padding: 2px 20px;
+	font-size: 20px;
+}
+.info p{
+	margin: 8px 0px;
 }
 .blog-post {
 	padding-bottom: 30px;
