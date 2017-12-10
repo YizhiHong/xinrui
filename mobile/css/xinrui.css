@@ -124,13 +124,10 @@ h3:hover {
 /*-------------------------------------------*/
 /*-------------- Special Mobile Page --------*/
 /*-------------------------------------------*/
-#special-mobile-body {
- background-color: #ECECEC;
-}
 
 .part {
- /* height: 245px;*/
-  margin: 6px;
+  margin: 4px;
+  background: #fff;
 }
 
 .pic-container {
@@ -143,20 +140,25 @@ h3:hover {
 
 .inside {
   background-color: #FFFFFF;
+  padding-left: 10px;
 }
-
+.inside h4{
+  color: #333333;
+  margin-bottom: 5px;
+}
 .inside p {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 150;
+  color: #797979;
 }
 
 .time {
-  background-color: #ffffff;
-  border-top-color: #D8D8D8;
+  border-top-color: #EFEFF4;
   border-top-style: solid;
   border-top-width: thin; 
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
+  padding-left: 10px;
 }
 
 .time p {
