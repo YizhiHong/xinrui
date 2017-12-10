@@ -1,0 +1,303 @@
+<!doctype html>
+<!--[if lt IE 8]><html lang="en" class="ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
+<!--[if gt IE 9]><html lang="en"><![endif]-->
+<!--[if !IE]><html lang="en"><![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>南方科技大学植物园 | 搜索</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="stylesheet" href= "./css/bootstrap.min.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/xinrui.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F51571495f717ff1194de02366bb8da9"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>
+    <style type="text/css">
+      .map{
+        position: fixed !important;
+        top:0; 
+        left:0; 
+        width:100%; 
+        height:100%;
+      }
+      .flower-block{
+        margin: 10px auto;
+        display: block;
+        padding: 15px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        max-width: 480px;
+      }
+      .flower-info-window{
+        display: block;
+        width: 100%;
+        padding: 8px;
+        background: #FFFFFF;
+      }
+      .flower-img{
+        display: inline-block;
+        width: 40%;
+        
+      }
+      .flower-info{
+        display: inline-block;
+        width: 60%;
+        position: absolute;
+        padding: 0px 10px 10px 10px;
+      }
+      .flower-info > h3{
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+
+      }
+      .flower-info > p{
+        font-size: 9px;
+        color: #333333;
+        opacity: 0.6;
+        line-height: 1.6;
+      }
+      .flower-info > h5{
+        border-top: 1px solid rgba(0, 0, 0, .6);
+        font-size: 9px;
+        color: #333333;
+        opacity: 0.6;
+        padding-top: 5px;
+      }
+      .search-group{
+        position: relative;
+        margin: 15px 10px;
+      }
+
+      .search-group input{
+        height: 36px;
+        padding-left: 30px;
+        font-size: 12px;
+      }
+      .search-group button{
+        height: 36px;
+        background-color: #14A599;
+        color: #FFFFFF;
+      }
+      .search-group .arrow-search{
+        position: absolute;
+        z-index: 99;
+        color: #B3B3B3;
+        padding-right: 5px;
+        font-size: 14px;
+        margin: 5px;
+        left: 3px;
+        top: 4px;
+      }
+      #to_there{
+        background: url(./images/search/toThere.png) no-repeat;
+        background-size: cover;
+        width: 52px;
+        height: 52px;
+        display: block;
+        z-index: 9999;
+        position: absolute;
+        right: 10%;
+        top: -5px;
+      }
+    </style>
+  </head>
+ <body>
+  <div class="wrapper">
+    <div class="map" id="allmap"></div>
+    <div id="info_window">
+      
+    </div>
+<!--     <div class="flower-block">
+      <div id="flower_1" class="flower-1 col-xs-12 flower-info-window">
+        <div class="flower-img">
+          <img class="img-responsive" src="./images/flowers/001_lg.png">
+        </div>
+        <div class="flower-info">
+          <h3>三角梅</h3>
+          <p>万紫千红竟芳菲，花开四季有阿谁；<br />国色天香世人爱，我独赞誉三角梅。</p>
+          <h5>紫茉莉科</h5>
+        </div>
+      </div>
+      <span id="to_there"></span>
+    </div>  -->
+
+  </div>
+  <div class="search-group">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="arrow-search"><i class="icon-search"></i></span>
+          <input type="text" class="form-control" placeholder="输入花名">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">搜索</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<script src="./js/zepto.min.js"></script>
+
+<script type="text/javascript">
+  //示例点json
+  const location_points = [
+  {'flowerID':'001',
+  'name':'三角梅',
+  'x':114.006015,
+  'y':22.603945,
+  'desc':'万紫千红竟芳菲，花开四季有阿谁；<br />国色天香世人爱，我独赞誉三角梅。',
+  'type':'紫茉莉科',
+  'img':'./images/flowers/001.png',
+  'img_lg':'./images/flowers/001_lg.png',
+  },
+  {'flowerID':'002','name':'菊花','x':114.006905,'y':22.603945,'img':'./images/flowers/001.png','desc':'万紫千红竟芳菲，花开四季有阿谁；<br />国色天香世人爱，我独赞誉三角梅。','type':'紫茉莉科','img_lg':'./images/flowers/001_lg.png'},
+  {'flowerID':'003','name':'太阳花','x':114.003825,'y':22.603943,'img':'./images/flowers/001.png','desc':'万紫千红竟芳菲，花开四季有阿谁；<br />国色天香世人爱，我独赞誉三角梅。','type':'紫茉莉科','img_lg':'./images/flowers/001_lg.png'},
+  ];
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    let lastCheck;
+
+    function init(){
+      //init map
+      let map = new BMap.Map("allmap",{minZoom:17,maxZoom:19}); 
+      map.centerAndZoom(new BMap.Point(114.005913,22.603944),17);
+      map.addEventListener("tilesloaded",function(){
+        $('.anchorBL').empty()
+      });
+      map.enableScrollWheelZoom();
+
+      //init boundary
+      let boundary = new BMap.Bounds(new BMap.Point(113.997038,22.593868),new BMap.Point(114.014788,22.61402));
+
+      try { 
+        BMapLib.AreaRestriction.setBounds(map, boundary);
+      } catch (e) {
+        alert(e);
+      }
+   
+      return map
+    }
+
+    const map = init();
+
+    let geolocation = new BMap.Geolocation();
+    let myLocation;
+
+    function initFlowerIcon(locations,map_){
+      //init flowers' location
+      locations.forEach(function (flower) {
+        let point = new BMap.Point(flower.x, flower.y);
+        const sm = new BMap.Size(50,54);
+        const lg = new BMap.Size(64,69);
+        const lg_bg = new BMap.Size(64,81);
+        let icon = new BMap.Icon(flower.img,sm,{imageSize:sm});
+       
+        BMap.Marker.prototype.openInfo = function(flower){
+            let loc_url = "http://api.map.baidu.com/direction?mode=walking&origin="+myLocation+"&destination="+flower.x+","+flower.y+"&region=深圳&output=html"
+            content = setContent(flower,loc_url)
+            $('#info_window').append(content)
+        }
+        BMap.Marker.prototype.closeInfo = function(){
+          $('#info_window').html("")
+        }
+
+        let marker = new BMap.Marker(point,{icon:icon});
+        marker['state'] = false;
+        marker['name'] = flower.name
+        marker['flowerID'] = flower.flowerID
+ 
+
+
+
+        function setIcon(Icon,size,anchor,imageSize){
+            Icon.setSize(size);
+            Icon.setAnchor(anchor);
+            Icon.setImageSize(imageSize);
+            return Icon
+        }
+
+        function setContent(flower,loc_url){
+          let sConetent = '<div class="flower-block"><div id="flower_'+flower.flowerID+'" class="flower-'+flower.flowerID+' col-xs-12 flower-info-window"><div class="flower-img">' +
+            '<img class="img-responsive" src="'+ flower.img_lg+'">' +
+            '</div><div class="flower-info">' +
+                '<h3>'+ flower.name +'</h3>' +
+                '<p>'+ flower.desc + '</p>' +
+                '<h5>'+ flower.type +'</h5>' +
+              '</div>' +
+            '</div><a id="to_there" href="'+loc_url+'"></span></a>';
+          // let infoWindow = new BMap.InfoWindow(sConetent); 
+          return sConetent
+        }
+
+        function SetState(obj,image){
+          let loc = obj.getIcon().imageUrl;
+          let nig = loc.substr(0, image.length -5) + loc.substr(-4);
+          Icon = new BMap.Icon(nig,sm,{imageSize:sm});
+          return Icon
+        }
+
+        marker.addEventListener('click',function(e){
+          let oig = flower.img;
+          let ig = oig.substr(0, oig.length -4) + '_' + oig.substr(-4);
+          let Icon;
+          this.closeInfo();
+          if(this['state']){
+            Icon = SetState(this,ig)
+            this['state'] = false
+          }else{
+            this.openInfo(flower);
+            this['state'] = true
+            try {
+              if (lastCheck !== marker &&  lastCheck !== undefined){
+                lastCheck['state'] = false;
+                Icon_ = SetState(lastCheck,ig)
+                lastCheck.setIcon(Icon_);
+              }
+            } catch (e) {
+              console.log(e);
+            }
+
+            Icon = new BMap.Icon(ig, lg_bg,{imageSize:lg});
+          }
+          this.setIcon(Icon)
+          lastCheck = marker;
+        })
+        map_.addOverlay(marker);
+
+      });
+    }
+
+    geolocation.getCurrentPosition(function(r){
+        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+            let mk = new BMap.Marker(r.point);
+            map.addOverlay(mk);
+            let latCurrent = r.point.lat;
+            let lngCurrent = r.point.lng;
+            myLocation = latCurrent+ "," + lngCurrent
+            // init Flower Icon
+            initFlowerIcon(location_points,map);
+        }
+        else {
+            alert('failed'+this.getStatus());
+        }        
+    },{enableHighAccuracy: true})
+
+    //测试花markers
+    // var mkrs = map.getOverlays();
+    // for (var i=0; i < mkrs.length;i++) {
+    //   console.log(mkrs[i].name);
+    // }
+    
+  });
+</script>
