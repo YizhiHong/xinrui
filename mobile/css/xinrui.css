@@ -1,206 +1,19 @@
 body{
 	font-family: '微软雅黑';
-	font-size: 14px;
-	/*background-image: url(../images/bg.png);
-	background-color: #F8F6ED;*/
+	font-size: 12px;
 	color: #333333;
+  background-color: #ECECEC;
 	height:100%;
 	padding:0px; 
 	margin:0px;
 }
-
 .wrapper{
 	min-height:100%; 
 	position:relative
 }
-.header{
-	margin: 20px 40px
+a{
+  color: #333333;
 }
-
-.logo{
-	width: 70%;
-	max-width: 472px; 
-}
-
-.login-section{
-	float: right;
-	display: inline-block;
-}
-
-.login-section .btn{
-	border-radius: 1px;
-	height: 40px;
-	background: transparent;
-}
-.login-section button:focus{
-	box-shadow: none;
-	outline:0 !important;
-}
-
-.lang-drop, .sign-login{
-	display: inline-block;
-	margin-top: 20px;
-}
-
-.lang-drop{
-	margin-right: 40px;
-}
-
-.lang-drop .btn{
-	border: 1px solid #CBCBCB;
-	width: 113px;
-	text-align: left;
-	padding-left: 20px;
-}
-.lang-drop .dropdown-menu{
-	min-width: 113px;
-    margin-top: -1px;
-    border-radius: 1px;
-    padding: 0px 0;
-    background: transparent;
-}
-.lang-drop .dropdown-menu > li > a{
-	padding: 10px 15px;
-	color: #85837D;
-	font-size: 12px
-}
-.sign-login .btn{
-	border:none;
-}
-.index-block{
-	margin: 10% 40px;
-}
-.animated-content{
-	position: fixed;
-	right: 0px;
-	z-index: -1;
-}
-.animated-content img{
-	position: fixed;
-	right: 0px;
-	z-index: -1;
-}
-div[name = search] > img{bottom: 0px;}
-div[name = special] > img{bottom: 0px;}
-div[name = shows] > img{bottom: 0px;}
-div[name = activity] > img{top: 0px;}
-
-.sign-login{
-
-}
-
-.content{
-
-}
-.index-item{
-	margin: 20px 0px;
-}
-.index-item > * > div{
-	width: 100%;
-}
-
-.img-lg{
-	position: absolute;
-    top: -50%;
-    left: 0;
-    z-index: 99;
-}
-.img-sm{
-	margin: 0 auto;
-}
-
-.img-hidden{
-	opacity: 0;
-	transition:0.8s;
-}
-
-.img-active{
-	opacity: 1;
-	transition:0.8s;
-}
-
-.footer{
-
-}
-
-.sign-login{
-}
-
-
-@media (max-width:768px){
-	.logo{
-		width: 100%;
-		margin: 0 auto;
-	}
-}
-
-/* Animations */
-.animated {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
-
-.animated.infinite {
-  animation-iteration-count: infinite;
-}
-
-.animated.hinge {
-  animation-duration: 2s;
-}
-
-.animated.flipOutX,
-.animated.flipOutY,
-.animated.bounceIn,
-.animated.bounceOut {
-  animation-duration: .75s;
-}
-
-@keyframes bounceInDown {
-  from, 60%, 75%, 90%, to {
-    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  }
-
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -100px, 0);
-  }
-
-  60% {
-    opacity: 1;
-    transform: translate3d(0, 25px, 0);
-  }
-
-  75% {
-    transform: translate3d(0, -10px, 0);
-  }
-
-  90% {
-    transform: translate3d(0, 5px, 0);
-  }
-
-  to {
-    transform: none;
-  }
-}
-
-.bounceInDown {
-  animation-name: bounceInDown;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.fadeIn {
-  animation-name: fadeIn;
-}
-
 
 /*-------------------------------*/
 /*---Mobile Event Page*----------*/
@@ -353,20 +166,38 @@ h3:hover {
 /*-------------------------*/
 /*----Index Mobile Page----*/
 /*-------------------------*/
-#index-mobile-body {
- background-color: #ECECEC;
+.index-part ,.index-part a{
+  height: 116px;
+  max-height: 180px;
+  max-width: 480px;
 }
-
-.index-part {
-  margin: 15px;
-  background-image: url("../images/index-mobile/back1.png");
-  background-repeat: no-repeat;
+.index-part{
+  margin: 15px auto;
+  background: url(../images/index-mobile/back1.png)  no-repeat;
   background-size: cover;
-/*  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;*/
-  height: 130px;
-
+}
+.index-part a{
+  margin: 0px -9px;
+}
+.index-show{
+  background: url(../images/index-mobile/flower1.png) no-repeat;
+  background-size: 146px 104px;
+  background-position: 100% bottom;
+}
+.index-search{
+  background: url(../images/index-mobile/flower2.png) no-repeat;
+  background-size: 119px 99px;
+  background-position: 100% bottom;
+}
+.index-activity{
+  background: url(../images/index-mobile/flower3.png) no-repeat;
+  background-size: 128px 102px;
+  background-position: 100% 45%;
+}
+.index-special{
+  background: url(../images/index-mobile/flower4.png) no-repeat;
+  background-size: 120px 106px;
+  background-position: 100% bottom;
 }
 
 .part-title h2, h6{
@@ -375,6 +206,13 @@ h3:hover {
 
 .part-title h6 {
   color: #858585;
+  font-size: 10px;
+}
+.part-title h2 {
+  font-size: 22px;
+}
+.part-title > h2 > span{
+  margin-left: 15px;
 }
 
 .background-container {
