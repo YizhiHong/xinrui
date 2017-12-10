@@ -96,7 +96,7 @@
                       <div class="show-slide">
                         <img class="img-responsive" src="./images/activity/1.png">
                         <div class="show-slide-info">
-                          <a id='fl_1' class="flower-info"><h4>三角梅</h4></a>
+                          <a id='fl_1' class="flower-info-name"><h4>三角梅</h4></a>
                           <h5>紫茉莉科</h5>
                         </div>
                       </div>
@@ -105,7 +105,7 @@
                       <div class="show-slide">
                         <img class="img-responsive" src="./images/activity/2.png">
                         <div class="show-slide-info">
-                          <a id='fl_2' data-toggle="modal" data-target="#flower_detail"><h4>异木棉</h4></a>
+                          <a id='fl_2' class="flower-info-name"><h4>异木棉</h4></a>
                           <h5>木棉科</h5>
                         </div>
                       </div>
@@ -114,7 +114,7 @@
                       <div class="show-slide">
                         <img class="img-responsive" src="./images/activity/3.png">
                         <div class="show-slide-info">
-                          <a id='fl_3' data-toggle="modal" data-target="#flower_detail"><h4>大花软枝黄蝉</h4></a>
+                          <a id='fl_3' class="flower-info-name"><h4>大花软枝黄蝉</h4></a>
                           <h5>夹竹桃科</h5>
                         </div>
                       </div>
@@ -123,7 +123,7 @@
                       <div class="show-slide">
                         <img class="img-responsive" src="./images/activity/3.png">
                         <div class="show-slide-info">
-                          <a id='fl_3' data-toggle="modal" data-target="#flower_detail"><h4>大花软枝黄蝉</h4></a>
+                          <a id='fl_3' class="flower-info-name"><h4>大花软枝黄蝉</h4></a>
                           <h5>夹竹桃科</h5>
                         </div>
                       </div>
@@ -132,7 +132,7 @@
                       <div class="show-slide">
                         <img class="img-responsive" src="./images/activity/3.png">
                         <div class="show-slide-info">
-                          <a id='fl_3' data-toggle="modal" data-target="#flower_detail"><h4>大花软枝黄蝉</h4></a>
+                          <a id='fl_3' class="flower-info-name"><h4>大花软枝黄蝉</h4></a>
                           <h5>夹竹桃科</h5>
                         </div>
                       </div>
@@ -140,7 +140,7 @@
                       <div class="show-slide">
                         <img class="img-responsive" src="./images/activity/3.png">
                         <div class="show-slide-info">
-                          <a id='fl_3' data-toggle="modal" data-target="#flower_detail"><h4>大花软枝黄蝉</h4></a>
+                          <a id='fl_3' class="flower-info-name"><h4>大花软枝黄蝉</h4></a>
                           <h5>夹竹桃科</h5>
                         </div>
                       </div>
@@ -229,7 +229,7 @@
           return mySwiper
         }
 
-        $('.flower-info').on('click',function () {
+        $('.flower-info-name').on('click',function () {
           let thisID = $(this).attr('id')
           
           // here to load Flower info by id
