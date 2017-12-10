@@ -24,14 +24,14 @@ a{
 .event{
   background: #fff;
 }
-.event h3{
+.event h3,.speical-info h3{
  font-size: 16px;
  color: #111111;
  margin-top: 15px;
 }
 
-.container .back-pic {
-	margin: 30px 0 30px 0;
+.back-pic > img{
+	margin: 0 auto;
 }
 
 .campustag {
@@ -112,24 +112,28 @@ a{
 /*-------------------------------------------*/
 /*------Special Topic Infomation Page--------*/
 /*-------------------------------------------*/
-.sp_info {
-  margin-top: 20px;
+.speical-info{
+  background-color: #fff;
+}
+.sp-info {
   color: #A6A39A;
 }
 
-.mobile_sp_info {
+.mobile-sp-info {
   border-bottom-color: #D8D8D8;
   border-bottom-style: solid;
   border-bottom-width: thin;
   margin-bottom: 10px;
 }
 
-.mobile_sp_info:hover {
+.mobile-sp-info:hover {
   color: #00bcd4;
 }
-
+.speical-info .blog-post p{
+  font-size: 12px
+}
 .mobile-blog-post {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 /*-------------------------------------------*/
