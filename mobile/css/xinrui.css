@@ -15,7 +15,7 @@ a{
   position:relative
 }
 .content{
-  padding: 0px 10px
+  padding: 10px 10px
 }
 
 /*-------------------------------*/
@@ -169,13 +169,14 @@ h3:hover {
 /*-------------------------*/
 /*----Index Mobile Page----*/
 /*-------------------------*/
+
 .index-part ,.index-part a{
   height: 116px;
   max-height: 180px;
   max-width: 480px;
 }
 .index-part{
-  margin: 15px auto;
+  margin: 0px auto 15px auto;
   background: url(../images/index-mobile/back1.png)  no-repeat;
   background-size: cover;
 }
@@ -202,53 +203,51 @@ h3:hover {
   background-size: 120px 106px;
   background-position: 100% bottom;
 }
-
-.part-title h2, h6{
+.part-title h2,.part-title h6,.show-block h2,.show-block span,.show-block h6{
   font-weight: 200;
 }
-
-.part-title h6 {
+.part-title h6, .show-block h6 {
   color: #858585;
   font-size: 10px;
 }
-.part-title h2 {
+.part-title h2 ,.show-block h2{
   font-size: 22px;
 }
 .part-title > h2 > span{
   margin-left: 15px;
 }
 
-.background-container {
-  border: 0;
-  float: right;
-  position: relative;
+/*-------------------------*/
+/*-----Show Mobile Page----*/
+/*-------------------------*/
+
+.show-block{
+  margin: 0px -14px;
+  background: url(../images/show/bg.png)  no-repeat;
+  background-size: cover;
+  height: 130px;
+  max-width: 240px;
+}
+.show-block h2, .show-block h6{
+  writing-mode: tb-rl;
+  margin:0 auto;
+}
+.show-block > a.normal{
+  text-align: center;
+}
+.show-block > a.normal > h2{
+  writing-mode: initial;
+  margin-left: 0px;
+  padding-bottom: 20px;
 }
 
-.cornerimage {
-  border: 0;
-  position: absolute;
-} 
-
-.flower1 {
-  top: 10px;
-  right: 2px;
-  width: 100%;
+.show-block > a > h6 img{
+  width: 6px;
+  height: 7px;
+  margin-left: -1.4px;
+  margin-top: 4px;
 }
-
-.flower2 {
-  width: 85%;
-  right: 2px;
-  top: 8px;
-}
-
-.flower3 {
-  width: 85%;
-  right: 2px;
-  top: 8px;
-}
-
-.flower4 {
-  width: 80%;
-  right: 2px;
-  top: 7px;
+.show-block h2{
+  margin-left: 30%;
+  padding-top: 37%;
 }
