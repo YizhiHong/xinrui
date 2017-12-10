@@ -18,100 +18,6 @@
     <link rel="stylesheet" href="./css/xinrui.css">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F51571495f717ff1194de02366bb8da9"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>
-    <style type="text/css">
-      .map{
-        position: fixed !important;
-        top:0; 
-        left:0; 
-        width:100%; 
-        height:100%;
-      }
-      .custom-zoom-in{
-        background-image: url('./images/zoom_button.png');
-        background-repeat: no-repeat;
-        background-position: 0px 0px;
-        width: 48px;
-        height: 54px;
-      }
-      .custom-zoom-out{
-        background-image: url('./images/zoom_button.png');
-        background-repeat: no-repeat;
-        background-position: 0px -55px;
-        width: 48px;
-        height: 54px;
-      }
-      .flower-info-window{
-        display: block;
-        width: 525px;
-        height: 225px;
-        padding: 15px;
-        background: #FFFFFF;
-        /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2); */
-      }
-      .flower-img{
-        display: inline-block;
-        max-width: 195px;
-        max-height: 195px;
-        
-      }
-      .flower-info{
-        display: inline-block;
-        width: 285px;
-        padding: 5px 30px;
-        position: absolute;
-        height: 200px;
-      }
-      .flower-info > h3{
-        font-size: 24px;
-        margin-top: 0px;
-        margin-bottom: 33px;
-      }
-      .flower-info > p{
-        font-size: 14px;
-        color: #333333;
-        opacity: 0.6;
-      }
-      .flower-info > h5{
-        border-top: 1px solid rgba(0, 0, 0, .6);
-        font-size: 12px;
-        color: #333333;
-        opacity: 0.6;
-        padding-top: 25px;
-        position: absolute;
-        width: 255px;
-        bottom: 10px;
-      }
-      .search-group{
-        position: relative;
-        margin-left: 5%;
-        margin-top: 5%;
-      }
-      .search-group .input-group {
-        max-width: 500px;
-      }
-      .search-group input{
-        height: 50px;
-        padding-left: 50px;
-      }
-      .search-group button{
-        height: 50px;
-        background-color: #14A599;
-        color: #FFFFFF;
-      }
-      .search-group .arrow-left{
-        position: absolute;
-        z-index: 99;
-        border-right: 1px solid #999;
-        padding-right: 10px;
-        font-size: 18px;
-        margin: 10px;
-        left: 5px;
-        top: 3px;
-      }
-      .search-group button > i{
-        font-size: 20px;
-      }
-    </style>
   </head>
  <body>
   <div class="wrapper">
@@ -222,10 +128,6 @@
         let lg_bg = new BMap.Size(64,81);
         let icon = new BMap.Icon(flower.img,sm,{imageSize:sm});
 
-        // let opts = {position : point}
-        // let label = new BMap.Label('<img src="./images/flowers/001.png">',opts);
-        // marker.setLabel(label);
-
         let marker = new BMap.Marker(point,{icon:icon});
         marker['state'] = false;
         marker['name'] = flower.name
@@ -251,33 +153,36 @@
         }
 
         marker.addEventListener('click',function(e){
-          this.openInfoWindow(setContent(flower));
           let oig = flower.img;
           let ig = oig.substr(0, oig.length -4) + '_' + oig.substr(-4);
           let Icon;
+          let IW = new BMap.InfoWindow(setContent(flower));
           if(this['state']){
-            this['state'] = false
-            Icon = this.getIcon();
-            // Icon = setIcon(Icon,sm,offset_,sm)
-            Icon = new BMap.Icon(oig,sm,{imageSize:sm});
+            this.closeInfoWindow();
           }else{
+            let infoWindow = setContent(flower)
+            this.openInfoWindow(infoWindow);
             this['state'] = true
             try {
-              if (lastCheck !== marker){
+              if (lastCheck !== marker &&  lastCheck !== undefined){
                 lastCheck['state'] = false;
                 let loc = lastCheck.getIcon().imageUrl;
                 let nig = loc.substr(0, ig.length -5) + loc.substr(-4);
                 Icon_ = new BMap.Icon(nig, sm,{imageSize:sm});
-                // Icon_ = lastCheck.getIcon();
-                // Icon_ = setIcon(Icon_,sm,offset_,sm);
                 lastCheck.setIcon(Icon_);
               }
             } catch (e) {
               console.log(e);
             }
+            let thisMarker = this
+            infoWindow.addEventListener('close',function(e){
+              thisMarker['state'] = false
+              let loc = thisMarker.getIcon().imageUrl;
+              let nig = loc.substr(0, ig.length -5) + loc.substr(-4);
+              IconSm = new BMap.Icon(nig,sm,{imageSize:sm});
+              thisMarker.setIcon(IconSm)
+            })
             Icon = new BMap.Icon(ig, lg_bg,{imageSize:lg});
-            // Icon = this.getIcon();
-            // Icon = setIcon(Icon,lg_bg,offset,lg)
           }
           this.setIcon(Icon)
           lastCheck = marker;
