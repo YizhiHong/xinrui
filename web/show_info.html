@@ -231,6 +231,7 @@
 
         $('.flower-info-name').on('click',function () {
           let thisID = $(this).attr('id')
+          let mySwiper;
           
           // here to load Flower info by id
           $('#flower_detail').on('show.bs.modal', function (e) {
@@ -238,6 +239,10 @@
                 mySwiper = initSwiper()
             }, 200);
           }).modal('show')
+
+          $('#flower_detail').on('hidden.bs.modal',function(e){
+              mySwiper.destroy()
+          })
         })
       });
     </script>
