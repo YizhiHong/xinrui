@@ -60,10 +60,10 @@ body{
 }
 
 .logo{
-	max-width: 100px; 
+	max-width: 240px; 
 }
 .logo-sm{
-	max-width: 80px; 
+	max-width: 180px; 
 }
 .content-block{
 	display: block;
@@ -136,10 +136,12 @@ body{
 .footer-link > *{
 	display: inline-block
 }
-.footer-link .btn{
-	font-size: 10px;
+.footer-link .a-link{
+	font-size: 14px;
+	color: #14A599;
 	padding: 4px 10px;
 	margin: 5px 15px;
+	text-decoration: underline;
 }
 .btn-theme-white,.btn-theme-white-lg{
 	background: transparent;
@@ -225,6 +227,7 @@ body{
 	height: 100%;
 	right: 0;
 	top: 0;
+	z-index: -1;
 }
 .index-block{
 	margin: 10% 40px;
