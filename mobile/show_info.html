@@ -68,7 +68,7 @@
 
   <div class="modal fade" id="flower_detail" role="dialog" aria-labelledby="login">
         <div class="flower-content">
-<!--             <div class="flower-detail">
+            <div class="flower-detail">
               <p>中文学名：<span>三角梅</span></p>
               <p>拉丁学名：<span>Bougainvillea glabra</span></p>
               <p style="text-indent: 3em">科：<span>紫茉莉科</span></p>
@@ -76,7 +76,7 @@
               <div class="flower-map">
                 <a href="./search.html" class="btn btn-theme">查看地图</a>
               </div>
-            </div> -->
+            </div>
             <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img class="img-responsive" src="./images/close.png"></span></button>
             <div class="swiper-container">
               <div class="swiper-wrapper">
@@ -111,22 +111,27 @@
             })
           return mySwiper
         }
+        let mySwiper;
 
         $('.flower-info-name').on('click',function () {
           let thisID = $(this).attr('id')
-          let mySwiper;
+          
           $('#flower_detail').addClass('in')
           $('#flower_detail').show()
           
           $('.modal-backdrop').show()
 
           mySwiper = initSwiper()
-          $('#close').on('click',function(){
+
+        })
+
+        $('#close').on('click',function(){
             mySwiper.destroy()
             $('#flower_detail').removeClass('in')
+            $('#flower_detail').hide()
             $('.modal-backdrop').hide()
-          })
         })
+
       });
 </script>
 </body>
