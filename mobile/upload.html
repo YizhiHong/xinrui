@@ -1,0 +1,121 @@
+<!doctype html>
+<!--[if lt IE 8]><html lang="en" class="ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
+<!--[if gt IE 9]><html lang="en"><![endif]-->
+<!--[if !IE]><html lang="en"><![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>南方科技大学植物园 | 上传活动</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/xinrui.css">
+</head>
+
+<body class="upload">
+  <div class="tool-bar">
+    <input type="checkbox" id="navbar-toggle-cbox">
+      <div class="navbar-header">
+       <label for="navbar-toggle-cbox" class="navbar-toggle full-bar collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          征文活动<i class="icon-angle-down"></i>
+        </label>
+      </div>
+      <div id="navbar" class="navbar-collapse full-collapse collapse">
+        <ul class="nav navbar-nav three-li">
+          <li class="active"><a href="#">征文活动</a></li><li><a href="#">图片征集</a></li><li><a href="#">活动召集</a></li>
+        </ul>
+      </div>
+  </div>
+  <form>
+    <div class="content">
+      <div class="row" style="margin: 0px -5px">
+         <div class="col-xs-12">
+          <div class="form-group">
+            <label for="title">标题</label><span class="label-help">简短一些让其他人快速了解你的主题(4~50字)</span>
+            <input type="text" class="form-control" id="title" placeholder="这里输入标题...">
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group upload-section">
+            <label for="title">添加照片</label>
+            <div class="row" style="margin: 0px -5px">
+              <div class="col-xs-4">
+                <div class="image-upload">
+                  <img class="image-add" src="./images/add.png">
+                  <h4>上传照片</h4>
+                  <p>格式：JPG、PNG、GIF</p>
+                  <p>大小：小于10M</p>
+                </div>
+              </div>
+              <div class="col-xs-4 image-show">
+                <div class="image-preview">
+                  <img class="img-responsive preview-img" id="image_1" src="">
+                  <span class="delete">&#10005;</spans>
+                </div>
+              </div>
+              
+            </div>
+            <input type="file" class="form-control hidden upload-input" id="upload_1" placeholder="">  
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="type">内容</label><span class="label-help">在此输入你的正文分享给大家</span>
+            <textarea type="text" class="form-control" id="content" placeholder="这里输入正文..." ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn sign-button" role="button">立即报名</button>
+  </form>
+<script src="./js/zepto.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function () {
+        let lastID = 1
+        $(".image-upload").on('click',function(){
+          $('.upload-section').append(createInput(lastID+1))
+          $('#upload_'+lastID).change(function(){
+            readURL(this);
+          })
+          $('#upload_'+lastID).click();
+        })
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+              let img = $('.image-preview').find('#image_' + lastID)
+              console.log(img);
+              img.attr('src', e.target.result);
+              bindDelete(img)
+              preview = createPreview(lastID+1)
+              $('.image-preview').parent().parent().append(preview)
+              lastID ++;
+            }
+            reader.readAsDataURL(input.files[0]);
+            $('.image-show').show()
+
+          }
+        }
+        function bindDelete(img){
+          let thisID = '#upload_'+ $(img).attr('id').split('_')[1];
+          $(img).next('.delete').on('click',function(){
+            $(thisID).remove();
+            $(this).parent().parent('.image-show').remove()
+          })
+        }
+        function createInput(i){
+          return '<input type="file" class="form-control hidden upload-input" id="upload_'+i+'">'
+        }
+        function createPreview(i) {
+          let preview = '<div class="col-xs-4 image-show"><div class="image-preview">'+
+                      '<img class="img-responsive" id="image_'+i+'" src=" "><span class="delete">&#10005;</spans></div></div>'
+          return preview
+        }
+   });
+</script>
+</body>
+</html>

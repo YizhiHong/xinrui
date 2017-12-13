@@ -18,96 +18,6 @@
     <link rel="stylesheet" href="./css/xinrui.css">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F51571495f717ff1194de02366bb8da9"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>
-    <style type="text/css">
-      .map{
-        position: fixed !important;
-        top:0; 
-        left:0; 
-        width:100%; 
-        height:100%;
-      }
-      .flower-block{
-        margin: 10px auto;
-        display: block;
-        padding: 15px;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-        max-width: 480px;
-      }
-      .flower-info-window{
-        display: block;
-        width: 100%;
-        padding: 8px;
-        background: #FFFFFF;
-      }
-      .flower-img{
-        display: inline-block;
-        width: 40%;
-        
-      }
-      .flower-info{
-        display: inline-block;
-        width: 60%;
-        position: absolute;
-        padding: 0px 10px 10px 10px;
-      }
-      .flower-info > h3{
-        font-size: 14px;
-        margin-top: 10px;
-        margin-bottom: 15px;
-
-      }
-      .flower-info > p{
-        font-size: 9px;
-        color: #333333;
-        opacity: 0.6;
-        line-height: 1.6;
-      }
-      .flower-info > h5{
-        border-top: 1px solid rgba(0, 0, 0, .6);
-        font-size: 9px;
-        color: #333333;
-        opacity: 0.6;
-        padding-top: 5px;
-      }
-      .search-group{
-        position: relative;
-        margin: 15px 10px;
-      }
-
-      .search-group input{
-        height: 36px;
-        padding-left: 30px;
-        font-size: 12px;
-      }
-      .search-group button{
-        height: 36px;
-        background-color: #14A599;
-        color: #FFFFFF;
-      }
-      .search-group .arrow-search{
-        position: absolute;
-        z-index: 99;
-        color: #B3B3B3;
-        padding-right: 5px;
-        font-size: 14px;
-        margin: 5px;
-        left: 3px;
-        top: 4px;
-      }
-      #to_there{
-        background: url(./images/search/toThere.png) no-repeat;
-        background-size: cover;
-        width: 52px;
-        height: 52px;
-        display: block;
-        z-index: 9999;
-        position: absolute;
-        right: 10%;
-        top: -5px;
-      }
-    </style>
   </head>
  <body>
   <div class="wrapper">
@@ -126,7 +36,7 @@
           <h5>紫茉莉科</h5>
         </div>
       </div>
-      <span id="to_there"></span>
+      <span class="to-there" id="to_there"><img src="./images/search/sign.png">到这去</span>
     </div>  -->
 
   </div>
@@ -190,8 +100,13 @@
     }
 
     const map = init();
-
-    let geolocation = new BMap.Geolocation();
+   
+    let geolocation;
+    try { 
+      geolocation = new BMap.Geolocation();
+    } catch (e){
+      alert("获取当前位置失败");
+    }
     let myLocation;
 
     function initFlowerIcon(locations,map_){
@@ -217,9 +132,6 @@
         marker['name'] = flower.name
         marker['flowerID'] = flower.flowerID
  
-
-
-
         function setIcon(Icon,size,anchor,imageSize){
             Icon.setSize(size);
             Icon.setAnchor(anchor);
@@ -235,7 +147,7 @@
                 '<p>'+ flower.desc + '</p>' +
                 '<h5>'+ flower.type +'</h5>' +
               '</div>' +
-            '</div><a id="to_there" href="'+loc_url+'"></span></a>';
+            '</div><a id="to_there" class="to-there" href="'+loc_url+'"><img src="./images/search/sign.png">到这去</span></a>';
           // let infoWindow = new BMap.InfoWindow(sConetent); 
           return sConetent
         }
@@ -278,20 +190,25 @@
       });
     }
 
-    geolocation.getCurrentPosition(function(r){
-        if(this.getStatus() == BMAP_STATUS_SUCCESS){
-            let mk = new BMap.Marker(r.point);
-            map.addOverlay(mk);
-            let latCurrent = r.point.lat;
-            let lngCurrent = r.point.lng;
-            myLocation = latCurrent+ "," + lngCurrent
-            // init Flower Icon
-            initFlowerIcon(location_points,map);
-        }
-        else {
-            alert('failed'+this.getStatus());
-        }        
-    },{enableHighAccuracy: true})
+    try { 
+      geolocation.getCurrentPosition(function(r){
+          if(this.getStatus() == BMAP_STATUS_SUCCESS){
+              let mk = new BMap.Marker(r.point);
+              map.addOverlay(mk);
+              let latCurrent = r.point.lat;
+              let lngCurrent = r.point.lng;
+              myLocation = latCurrent+ "," + lngCurrent
+              // init Flower Icon
+              initFlowerIcon(location_points,map);
+          }
+          else {
+              alert('failed'+this.getStatus());
+          }        
+      },{enableHighAccuracy: true})
+
+    } catch (e) {
+        alert("获取当前位置失败");
+    }
 
     //测试花markers
     // var mkrs = map.getOverlays();
