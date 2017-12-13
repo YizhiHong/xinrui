@@ -513,6 +513,7 @@ a{
 }
 .show-info-body .col-xs-6{
   padding: 7.5px;
+  margin-right: -1px;
 }
 .show-info-body .content{
   padding: 0px 15px;
