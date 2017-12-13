@@ -702,6 +702,7 @@ a{
 .image-show{
   display: none;
   margin-bottom: 8px;
+  margin-right: -1px;
 }
 .upload-section .delete{
   position: absolute;
