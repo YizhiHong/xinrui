@@ -14,7 +14,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="">
     <link rel="stylesheet" href="./css/bootstrap.min.css">   
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/swiper.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/xinrui.css">
   </head>
@@ -100,9 +99,10 @@
                       <p>大小：小于10M</p>
                     </div>
                   </div>
-                  <div class="col-xs-12 col-sm-6 col-md-3">
+                  <div class="col-xs-12 col-sm-6 col-md-3 image-show">
                     <div class="image-preview">
                       <img class="img-responsive preview-img" id="image_1" src="">
+                      <span class="delete">&#10005;</spans>
                     </div>
                   </div>
                   
@@ -136,41 +136,44 @@
             btn.html($(this).text() + '<i class="icon-caret-down"></i>');
             btn.val($(this).text());
         });
+        let lastID = 1
         $(".image-upload").on('click',function(){
-          let len = $('.image-preview').length
-          if (len < 4){
-            len >= 3 ? console.log('full') :$('.upload-section').append(createInput(len+1))
-            $('#upload_'+len).change(function(){
-              readURL(this);
-            })
-            $('#upload_'+len).click();
-          }else{
-            alert('图片不能多于三张')
-          }
+          $('.upload-section').append(createInput(lastID+1))
+          $('#upload_'+lastID).change(function(){
+            readURL(this);
+          })
+          $('#upload_'+lastID).click();
         })
         function readURL(input) {
           if (input.files && input.files[0]) {
             let reader = new FileReader();
-            let len = $('.image-preview').length
             reader.onload = function(e) {
-              $('.image-preview').find('#image_' + len).attr('src', e.target.result);
-              if (len < 3){
-                preview = createPreview(len+1)
-                $('.image-preview').parent().parent().append(preview)
-              }
-              // $('#image_' + len).on('click',function(){
-              //     $('#upload_'+len).click();
-              // })
+              let img = $('.image-preview').find('#image_' + lastID)
+              console.log(img);
+              img.attr('src', e.target.result);
+              bindDelete(img)
+              preview = createPreview(lastID+1)
+              $('.image-preview').parent().parent().append(preview)
+              lastID ++;
             }
             reader.readAsDataURL(input.files[0]);
+            $('.image-show').show()
+
           }
+        }
+        function bindDelete(img){
+          let thisID = '#upload_'+ $(img).attr('id').split('_')[1];
+          $(img).next('.delete').on('click',function(){
+            $(thisID).remove();
+            $(this).parent().parent('.image-show').remove()
+          })
         }
         function createInput(i){
           return '<input type="file" class="form-control hidden upload-input" id="upload_'+i+'">'
         }
         function createPreview(i) {
-          let preview = '<div class="col-xs-12 col-sm-6 col-md-3"><div class="image-preview">'+
-                      '<img class="img-responsive" id="image_'+i+'" src=" "></div></div>'
+          let preview = '<div class="col-xs-12 col-sm-6 col-md-3 image-show"><div class="image-preview">'+
+                      '<img class="img-responsive" id="image_'+i+'" src=" "><span class="delete">&#10005;</spans></div></div>'
           return preview
         }
       });

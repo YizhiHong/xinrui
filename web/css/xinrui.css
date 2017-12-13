@@ -903,6 +903,7 @@ a.apply-button{
     width: 100%;
     border: 1px dashed #25ABA0;
    padding: 15px 0px;
+   margin-bottom: 10px;
 }
 .image-upload p{
 	font-size: 10px;
@@ -913,11 +914,36 @@ a.apply-button{
 	padding: 5px;
 }
 .image-preview{
-	width: 100%;
-    height: 100%;
-    display: table;
-    border: 1px solid #979797;
-    background: #D8D8D8;
+  width: 100%;
+  display: table;
+  background: #D8D8D8;
+}
+.image-show{
+  display: none;
+  margin-bottom: 10px;
+}
+@media (max-width:768px){
+	.image-show{
+		margin: 10px 0px;
+	}
+}
+
+.upload-section .delete{
+  position: absolute;
+  top: -8px;
+  right: 6px;
+}
+.delete{
+  width: 20px;
+  height: 20px;
+  color: white;
+  z-index: 998;
+  background-color: #14A599;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 10px;
+  display: inline-block;
 }
 .upload textarea {
     resize: none;
